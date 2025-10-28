@@ -1,0 +1,168 @@
+html,
+body {
+  background: rgb(255, 255, 255);
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+div {
+  display: flex;
+  justify-content: left;
+}
+/* ------------------------------------------------------------------------------- */
+.header {
+  background-color: #ffffff;
+  height: 110px;
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+.logo {
+  width: 295px;
+}
+
+.languages-bar {
+  background-color: #c7ede9;
+  flex: 1; /*takes all the ledt width*/
+  display: flex;
+  justify-content: center; /* center the whole row horizontally */
+  gap: 30px; /* space between buttons */
+}
+/* ------------------------------------------------------------------------------- */
+.main {
+  background-color: #ffffff;
+  display: flex;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: calc(100vh - 100px);
+}
+
+.side-bar {
+  width: 255px;
+  background-color: #f5f5f5;
+  position: fixed;
+  top: 110px;
+  bottom: 0;
+  left: 0;
+  overflow-y: auto;
+  padding: 20px;
+  font-size: 25px;
+  font-family: 'Titillium Web', sans-serif;
+}
+
+ul li {
+  margin-bottom: 10px;
+}
+
+.main-content {
+  /* background-color: #c16b16; */
+  width: 80%;
+  margin-top: 105px;
+  padding-left: 80px;
+  margin-left: 256px;
+  display: flex;
+  flex-direction: column;
+}
+
+.top-botton {
+  background-color: #aedbd6;
+  font-size: 25px;
+  border: none;
+  cursor: pointer;
+  width: 200px;
+  height: 60px;
+  margin-top: 22px;
+  font-family: 'Titillium Web', sans-serif;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+.clicked-btn {
+  background-color: #81c7c0; /* slightly darker */
+  color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+  background-color: #8aada9;
+}
+
+.knowledge {
+  font-size: 25px;
+  font-family: 'Fira Sans', sans-serif;
+}
+
+.knowledge-homepage {
+  font-size: 40px;
+  font-family: 'Fira Sans', sans-serif;
+  text-align: center;
+}
+
+.main-content-homepage {
+  width: 80%;
+  margin-top: 105px;
+  padding-left: 80px;
+  margin-left: 256px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+ul.knowledge li {
+  margin-bottom: 20px;
+}
+
+.header-of-knowledge {
+  font-size: 45px;
+  font-family: 'Titillium Web', sans-serif;
+  margin-bottom: 0;
+}
+
+.header-homepage {
+  font-size: 70px;
+  font-family: 'Titillium Web', sans-serif;
+  text-align: center;
+  margin-bottom: 0;
+}
+
+img {
+  height: 100px;
+  margin-top: 5px;
+  margin-inline: auto;
+}
+
+a {
+  text-decoration: none; /* removes underline */
+  color: black;
+}
+
+aside li:hover {
+  color: rgb(81, 172, 155); /* color on hover */
+  cursor: pointer;
+}
+
+aside li.active {
+  color: #30a093;
+  font-weight: bold;
+}
+
+.green {
+  color: rgb(42, 162, 40);
+}
+
+.yellow {
+  color: rgb(224, 224, 110);
+}
+
+span {
+  color: #30a093;
+  font-weight: bold;
+}
