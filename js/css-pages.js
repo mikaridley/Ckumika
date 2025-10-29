@@ -17,6 +17,7 @@ function openCss() {
     { name: 'Flex', func: 'openCssFlex(this)' },
     { name: 'Media Query', func: 'openCssMedia(this)' },
     { name: 'Grid', func: 'openCssGrid(this)' },
+    { name: 'Position', func: 'openCssPosition(this)' },
   ]
   var strHtml = ''
   for (var i = 0; i < topics.length; i++) {
@@ -253,6 +254,10 @@ function openCssSizing(elListItem) {
       bold: 'em/rem',
       text: 'em is relative to the font size of the  parent element while rem is relative to the font size of the root element',
     },
+    {
+      bold: 'fr',
+      text: 'relative units used to size elements proportionally to their container',
+    },
   ]
 
   changeMainText(items)
@@ -325,6 +330,10 @@ function openCssClasses(elListItem) {
     {
       bold: ':only-child',
       text: 'elements who are the only child in the family',
+    },
+    {
+      bold: '.grid-container>*{ }',
+      text: 'selects all direct children of the specified class',
     },
   ]
 
@@ -451,6 +460,10 @@ function openCssGrid(elListItem) {
   changeHeader('Grid')
   const items = [
     {
+      bold: 'In grid',
+      text: 'if an element doesn’t have a set size, it will take up the entire available space',
+    },
+    {
       bold: 'display:grid',
       text: 'turns a container into a grid layout, letting you place items in rows and columns',
     },
@@ -458,6 +471,10 @@ function openCssGrid(elListItem) {
       bold: 'grid-template-columns/rows: col1 col2 col3...',
       text: 'defines the width of each column in a grid layout',
       example: 'grid-template-columns: 100px 10rem 1em',
+    },
+    {
+      bold: 'grid-template-columns: repeat(4,100px)',
+      text: 'repeat 100px four times',
     },
     {
       bold: 'grid-template-area:<br>"header header"<br>"aside main"<br>"ad main"<br>"footer footer"',
@@ -472,8 +489,82 @@ function openCssGrid(elListItem) {
       text: 'sets where a grid item starts and ends: you can specify exact line numbers or a start line plus how many tracks it should span',
     },
     {
-      bold: 'grid-area 2/2/4/4',
+      bold: 'grid-area: 2/2/4/4',
       text: 'kit starts at row line 2 and column line 2, and ends at row line 4 and column line 4',
+    },
+    {
+      bold: 'align-content: center',
+      text: 'center the grid vertically within its container',
+    },
+    {
+      bold: 'justify-content: center',
+      text: 'center the grid horizontally within its container',
+    },
+    {
+      bold: 'width: max-content',
+      text: 'sets the element’s width to fit its content without wrapping, expanding as much as the content needs',
+    },
+    {
+      bold: 'align-items: center',
+      text: 'vertically centers the content inside each grid cell',
+    },
+    {
+      bold: 'justify-items: center',
+      text: 'horizontally aligns the content inside each grid cell',
+    },
+    {
+      bold: 'place-items: center',
+      text: 'it centers content both vertically and horizontally within each grid cell',
+    },
+    {
+      bold: 'align-self: center / justify-self: center => place-self: center',
+      text: 'vertically / horizontally centers a single grid item within its own cell',
+    },
+  ]
+
+  changeMainText(items)
+}
+
+function openCssPosition(elListItem) {
+  changeFormat()
+  makeClickedBold(elListItem)
+  changeHeader('Position')
+  const items = [
+    {
+      bold: 'top: bottom: left: right:',
+      text: 'those properties only work when the element has a positioned value',
+    },
+    {
+      bold: 'inset:0',
+      text: 'top: 0; right: 0; bottom: 0; left: 0;',
+    },
+    {
+      bold: 'position: relative',
+      text: 'moves an element relative to its original position without removing it from the document flow',
+    },
+    {
+      bold: 'position: absolute',
+      text: 'moves an element relative to its nearest positioned ancestor and removes it from the normal document flow',
+    },
+    {
+      bold: 'position: fixed',
+      text: 'moves an element relative to the viewport, keeping it in the same place even when the page is scrolled',
+    },
+    {
+      bold: 'position: sticky',
+      text: 'keeps an element fixed while scrolling, but only until the end of its container',
+    },
+    {
+      bold: 'position: static',
+      text: 'the default positioning, it stays in the normal document flow and ignores top, bottom, left, and right',
+    },
+    {
+      bold: 'z-index:number',
+      text: 'higher numbers appear on top of lower ones, elements get 0 as default',
+    },
+    {
+      bold: 'top:50% left:50% translate: -50% -50%',
+      text: 'moves an element in the center of its container both vertically and horizontally',
     },
   ]
 

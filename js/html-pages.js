@@ -113,7 +113,7 @@ function openHtmlLinks(elListItem) {
     },
     {
       bold: 'JavaScript link (usually before &lt;/body&gt;)',
-      text: '&lt;script src="../js/home-page.js"&gt;&lt;/script&gt;',
+      text: '&lt;script src="js/home-page.js"&gt;&lt;/script&gt;',
     },
     {
       bold: 'Images',
