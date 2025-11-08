@@ -6,6 +6,9 @@ function openExtras() {
   const topics = [
     { name: 'Shortcuts', func: 'openShortcutsPage(this)' },
     { name: 'Console', func: 'openConsole(this)' },
+    { name: 'MVC', func: 'openMvc(this)' },
+    { name: 'Local storage', func: 'openlocalStorage(this)' },
+    { name: 'Query Params', func: 'openQueryParams(this)' },
   ]
   var strHtml = ''
   for (var i = 0; i < topics.length; i++) {
@@ -64,6 +67,88 @@ function openConsole(elListItem) {
     {
       bold: "$$('h1')",
       text: "selects all 'h1' elements on the page",
+    },
+  ]
+
+  changeMainText(items)
+}
+
+function openMvc(elListItem) {
+  changeFormat()
+  makeClickedBold(elListItem)
+  changeHeader('MVC')
+  const items = [
+    {
+      bold: 'MVC',
+      text: 'Model → handles the data and business logic<br>View → displays the data to the user<br>Controller → manages user input and updates the Model and View',
+    },
+    {
+      bold: 'onFunction',
+      text: 'Function that we call from the HTML, we will put on at the start',
+    },
+    {
+      bold: '___-service',
+      text: 'thats how we would call a JS file that controls the Model part',
+    },
+    {
+      bold: '___-controller',
+      text: 'thats how we would call a JS file that controls the Controller part',
+    },
+    {
+      bold: '_functionName',
+      text: 'we sohuld put _ before private functions',
+    },
+  ]
+
+  changeMainText(items)
+}
+
+function openlocalStorage(elListItem) {
+  changeFormat()
+  makeClickedBold(elListItem)
+  changeHeader('Local Storage')
+  const items = [
+    {
+      bold: "localStorage.setItem('name','eldan')",
+      text: "saves the value 'eldan' under the key 'name' in the browser’s local storage",
+    },
+    {
+      bold: "localStorage.getItem('name')",
+      text: "retrieves the value stored under the key 'name' from the browser’s local storage",
+    },
+    {
+      bold: "JSON,stringify({...}) || JSON.parse('{...}')",
+      text: 'converts an object into a JSON string back into an object',
+    },
+  ]
+
+  changeMainText(items)
+}
+
+function openQueryParams(elListItem) {
+  changeFormat()
+  makeClickedBold(elListItem)
+  changeHeader('Query Params')
+  const items = [
+    {
+      bold: 'diplinking',
+      text: 'a link that opens a specific page or content inside a website or app',
+    },
+    {
+      bold: 'queryParams = new URLSearchParams()',
+      text: 'creates a new object to build or read URL query parameters easily',
+    },
+    {
+      bold: 'const queryParams = `?title=${filterBy.title}&maxPrice=${filterBy.maxPrice}`<br> const newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + queryParams<br>window.history.pushState({ path: newUrl }, "", newUrl)',
+      text: 'builds a URL and updates the browser’s address bar without reloading the page',
+    },
+    {
+      bold: 'const queryParams = new URLSearchParams(window.location.search)',
+      text: 'creates an object to read the current page’s URL query parameters easily',
+    },
+    {
+      bold: "queryParams.get('parameter') || ''",
+      text: 'gets the parameter from the URL, or returns an empty string if it doesn’t exist',
     },
   ]
 

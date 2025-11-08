@@ -18,6 +18,10 @@ function openCss() {
     { name: 'Media Query', func: 'openCssMedia(this)' },
     { name: 'Grid', func: 'openCssGrid(this)' },
     { name: 'Position', func: 'openCssPosition(this)' },
+    { name: 'Column & Float', func: 'openCssColumn(this)' },
+    { name: 'Pseudo Elements', func: 'openCssPseudo(this)' },
+    { name: 'Scroll', func: 'openCssScroll(this)' },
+    { name: 'Animation', func: 'openCssAnimation(this)' },
   ]
   var strHtml = ''
   for (var i = 0; i < topics.length; i++) {
@@ -100,6 +104,10 @@ function openCssSelectors(elListItem) {
     {
       bold: '__:hover{ }',
       text: 'each selector can get a hover style as well',
+    },
+    {
+      bold: '__:active{ }',
+      text: 'applies styles to an element only while it is being clicked or activated by the user',
     },
   ]
 
@@ -520,6 +528,22 @@ function openCssGrid(elListItem) {
       bold: 'align-self: center / justify-self: center => place-self: center',
       text: 'vertically / horizontally centers a single grid item within its own cell',
     },
+    {
+      bold: 'grid-auto-flow: column / row',
+      text: 'places new grid items by filling column/rows first',
+    },
+    {
+      bold: 'grid-auto-columns:80px ',
+      text: 'sets the width of any automatically created grid columns to 80 pixels',
+    },
+    {
+      bold: 'grid-auto-flow: dense',
+      text: 'fills gaps left by earlier items to avoid empty spaces',
+    },
+    {
+      bold: 'grid-template-columns: repeat( auto-full, minmax(80px, 1fr) )',
+      text: 'creates as many columns as fit, each at least 80px wide and growing to fill available space',
+    },
   ]
 
   changeMainText(items)
@@ -563,8 +587,174 @@ function openCssPosition(elListItem) {
       text: 'higher numbers appear on top of lower ones, elements get 0 as default',
     },
     {
-      bold: 'top:50% left:50% translate: -50% -50%',
+      bold: 'top:50%<br>left:50%<br>translate: -50% -50%',
       text: 'moves an element in the center of its container both vertically and horizontally',
+    },
+    {
+      bold: 'inset: 0;<br>margin: auto;',
+      text: 'centres the element',
+    },
+  ]
+
+  changeMainText(items)
+}
+
+function openCssColumn(elListItem) {
+  changeFormat()
+  makeClickedBold(elListItem)
+  changeHeader('Column & Float')
+  const items = [
+    {
+      bold: 'column-count: 4, 200px;',
+      text: 'creates up to 4 columns, each at least 200px wide, filling the container',
+    },
+    {
+      bold: 'column-gap: 5px;',
+      text: 'sets a 5-pixel space between columns',
+    },
+    {
+      bold: 'break-inside: avoid;',
+      text: 'you apply it to the element you don’t want to split across columns or pages',
+    },
+    {
+      bold: 'column-span: all;',
+      text: 'makes an element stretch across all columns instead of staying in just one',
+    },
+    {
+      bold: 'float: left;',
+      text: 'moves an element to the left or right, letting surrounding text wrap around it',
+    },
+    {
+      bold: 'clear: left;',
+      text: 'prevents an element from sitting next to any floated elements on the left side, forcing it to move below them',
+    },
+    {
+      bold: 'shape-outside: circle() / ellips()',
+      text: 'makes text wrap around an element in a circular / elliptical shape',
+    },
+  ]
+
+  changeMainText(items)
+}
+
+function openCssPseudo(elListItem) {
+  changeFormat()
+  makeClickedBold(elListItem)
+  changeHeader('Pseudo Elements')
+  const items = [
+    {
+      bold: 'Pseudo Elements',
+      text: 'let you style specific parts of an element or insert content without adding extra HTML',
+    },
+    {
+      bold: 'li::selection',
+      text: 'styles when user highlights or selects the list item',
+    },
+    {
+      bold: 'li::marker',
+      text: 'targets the bullet so you can style it separately from the text',
+    },
+    {
+      bold: '::before ::after',
+      text: 'elements that let you insert content before or after an element’s real content, they always require the content property',
+    },
+    {
+      bold: 'content: attr(data-___)',
+      text: 'inserts the value of the data into the pseudo element',
+    },
+  ]
+
+  changeMainText(items)
+}
+
+function openCssScroll(elListItem) {
+  changeFormat()
+  makeClickedBold(elListItem)
+  changeHeader('Scroll')
+  const items = [
+    {
+      bold: '&lt;h1 id="__"  &lt;a href="#__"',
+      text: 'you can give an element an id and link to it other element so when clicked, the page automatically scrolls to that element',
+    },
+    {
+      bold: 'scroll-margin-top: 5px;',
+      text: 'adds a 5-pixel space above an element when it’s scrolled into view',
+    },
+    {
+      bold: 'html{ scroll-behaviour: smooth; }',
+      text: 'makes the page scroll smoothly',
+    },
+  ]
+
+  changeMainText(items)
+}
+
+function openCssAnimation(elListItem) {
+  changeFormat()
+  makeClickedBold(elListItem)
+  changeHeader('Animation')
+  const items = [
+    {
+      bold: 'transform: translateX(50%);',
+      text: 'moves an element horizontally to the right by 50% of its own width',
+    },
+    {
+      bold: 'transform: rotate(50deg); || rotate: y 45deg;',
+      text: 'rotate an element clockwise',
+    },
+    {
+      bold: 'transform: scale(2); || scale: x y;',
+      text: 'make an element grow bigger or smaller',
+    },
+    {
+      bold: 'transform-origin: bottom left;',
+      text: 'sets the point around which transformations',
+    },
+    {
+      bold: 'perspective: 300px;',
+      text: 'adds depth to 3D-transformed elements, making them appear closer or farther away',
+    },
+    {
+      bold: 'keyframes name{ 0%{ }  100%{ } };',
+      text: 'defines an animation by describing how an element’s styles change over time from start to finish',
+    },
+    {
+      bold: 'keyframes name{ to{ } };',
+      text: 'defines an animation that represents the final state of the animation',
+    },
+    {
+      bold: 'animation-name: name',
+      text: 'apply the animation to an element',
+    },
+    {
+      bold: 'animation-duration: 1s;',
+      text: 'sets how long the animation takes to complete one cycle',
+    },
+    {
+      bold: 'animation-timing-function: ease/ ease-in/ ease-out/ ease-in-out;',
+      text: 'controls how the animation progresses over time',
+    },
+    {
+      bold: 'animation-fill-mode: forwards/ backwards/ both/ none ;',
+      text: 'controls how an element’s styles are applied before and after an animation runs',
+    },
+    {
+      bold: 'animation-iteration-count: infinite/ number;',
+      text: 'sets how many times an animation repeats',
+    },
+    {
+      bold: 'animation-play-state: paused/ runnig;',
+      text: 'controls whether an animation is currently playing or stopped',
+    },
+    {
+      bold: 'animate.style',
+      text: 'it’s a library of ready‑to‑use CSS animations you can drop into your project',
+      example:
+        '&lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/&gt;',
+    },
+    {
+      bold: 'font awsome',
+      text: 'it’s a library that provides scalable vector icons that you can easily use in your web projects',
     },
   ]
 

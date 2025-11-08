@@ -10,6 +10,8 @@ function openHtml() {
     { name: 'Events', func: 'openHtmlEvents(this)' },
     { name: 'Sound', func: 'openHtmlSound(this)' },
     { name: 'Table and List', func: 'openHtmTable(this)' },
+    { name: 'Input', func: 'openHtmInput(this)' },
+    { name: 'Tags', func: 'openHtmTags(this)' },
   ]
   var strHtml = ''
   for (var i = 0; i < topics.length; i++) {
@@ -184,8 +186,16 @@ function openHtmlEvents(elListItem) {
       text: 'sends the element to a JS function when clicked',
     },
     {
+      bold: 'onClick="function(this.value)"',
+      text: "sends the element's value to a JS function when clicked",
+    },
+    {
       bold: 'onClick="function(event)"',
       text: 'sends the event object that contains information about the click',
+    },
+    {
+      bold: 'event.stopPropagation()',
+      text: 'stops the event from bubbling up to parent elements',
     },
     {
       bold: 'onclick=" "',
@@ -213,6 +223,22 @@ function openHtmlEvents(elListItem) {
     {
       bold: 'onmouseleave=" "',
       text: 'runs a function when the mouse pointer leaves an element',
+    },
+    {
+      bold: 'onchange=" "',
+      text: 'runs JS when the value of an input or select element changes',
+    },
+    {
+      bold: 'onsubmit=" "',
+      text: 'runs the function when a form is submitted',
+    },
+    {
+      bold: '&lt;form method="dialog";',
+      text: 'it closes the dialog when a button inside the form is clicked',
+    },
+    {
+      bold: 'onerror="this.src="img/..""',
+      text: 'if an image fails to load, this sets a fallback image automatically',
     },
   ]
 
@@ -257,6 +283,91 @@ function openHtmTable(elListItem) {
     {
       bold: '&lt;ul&gt; / &lt;ol&gt; => &lt;li&gt;',
       text: 'unordered/ordered list and list items',
+    },
+    {
+      bold: 'ul&gt;li*3',
+      text: 'shortcut to create a <ul> element with 3 <li> items inside',
+    },
+  ]
+
+  changeMainText(items)
+}
+
+function openHtmInput(elListItem) {
+  changeFormat()
+  makeClickedBold(elListItem)
+  changeHeader('Input')
+  const items = [
+    {
+      bold: 'name="book-add"',
+      text: 'used to identify the input so we can access its value in JS',
+    },
+    {
+      bold: 'type="text"',
+      text: 'defines an input field where the user can enter plain text',
+    },
+    {
+      bold: 'type="number"',
+      text: 'only accept numeric values, often showing arrows to increase or decrease the number',
+    },
+    {
+      bold: 'type="range" min="0" max="100" value="0"',
+      text: 'creates a slider input where the user can pick a number between 0 and 100, starting at 0',
+    },
+    {
+      bold: 'type="checkbox" || el.checked=true/false',
+      text: 'creates a box that the user can check or uncheck to select an option',
+    },
+    {
+      bold: 'placeholder="insert a price"',
+      text: 'shows temporary hint text inside an input field to guide the user',
+    },
+  ]
+
+  changeMainText(items)
+}
+
+function openHtmTags(elListItem) {
+  changeFormat()
+  makeClickedBold(elListItem)
+  changeHeader('Tags')
+  const items = [
+    {
+      bold: '&lt;select&gt;&lt;options value="all"&gt;',
+      text: 'creates a dropdown menu with selectable items',
+    },
+    {
+      bold: '&lt;form&gt;',
+      text: 'groups inputs so the user can submit data, including by pressing Enter',
+    },
+    {
+      bold: '&lt;button type="button"',
+      text: 'a button that does not submit the form when clicked',
+    },
+    {
+      bold: '&lt;label&gt;',
+      text: 'defines a text label for an input, making it easier to understand and clickable',
+    },
+    {
+      bold: '&lt;labe for="firstname"<br>&lt;input id="firstname" ',
+      text: 'links the label to the input so clicking the label focuses the input',
+    },
+    {
+      bold: '&lt;fieldset&gt;',
+      text: 'groups related form elements together, usually with a visible border',
+    },
+    {
+      bold: '&lt;legend&gt;',
+      text: 'provides a caption or title for a fieldset group in a form',
+    },
+    {
+      bold: '&lt;dialog&gt;',
+      text: 'defines a popup or modal window that can be shown or hidden on the page',
+      example: 'el.showModal() || el.close()',
+    },
+    {
+      bold: '&lt;form method="dialog"',
+      text: 'a form inside a dialog that closes the dialog when submitted',
     },
   ]
 

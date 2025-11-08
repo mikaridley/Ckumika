@@ -12,10 +12,12 @@ function openJs() {
     { name: 'Conditions', func: 'openJsConditions(this)' },
     { name: 'Loops', func: 'openJsLoops(this)' },
     { name: 'Arrays', func: 'openJsArrays(this)' },
+    { name: 'Arrays Extras', func: 'openJsArraysExtras(this)' },
     { name: 'Objects', func: 'openJsObjects(this)' },
     { name: 'Matrix', func: 'openJsMatrix(this)' },
     { name: 'Functions', func: 'openJsFunctions(this)' },
     { name: 'Connecting JS with HTML & CSS', func: 'openJsConnecting(this)' },
+    { name: 'Pagination', func: 'openJsPagination(this)' },
   ]
   var strHtml = ''
   for (var i = 0; i < topics.length; i++) {
@@ -101,11 +103,19 @@ function openJsStrings(elListItem) {
       bold: "names.split(',')",
       text: "turns string separated by ',' into an array",
     },
-    { bold: 'Template strings:', text: '`Hello ${name}`' },
+    { bold: 'Template strings', text: '`Hello ${name}`' },
     {
-      bold: 'Padding a string:',
+      bold: 'Padding a string',
       text: 'str.padStart(times,with-what)',
       example: "str.padStart(2,'0')",
+    },
+    {
+      bold: "str.includes('')",
+      text: 'returns true or false',
+    },
+    {
+      bold: 'str.toFixed(2)',
+      text: 'formats a number to 2 decimal places as a string',
     },
   ]
   changeMainText(items)
@@ -116,7 +126,10 @@ function openJsNumbers(elListItem) {
   makeClickedBold(elListItem)
   changeHeader('Numbers')
   const items = [
-    { bold: '+prompt()', text: 'converts the prompt input into a number' },
+    {
+      bold: '+prompt("question",placeholder)',
+      text: 'converts the prompt input into a number',
+    },
     { bold: 'a++', text: 'prints old value, then increases' },
     { bold: '++a', text: 'increases first, then prints' },
     { bold: 'Infinity and -Infinity', text: 'largest/smallest numbers' },
@@ -307,7 +320,7 @@ function openJsArrays(elListItem) {
     },
     {
       bold: 'pets.splice(start, deleteCount, itemToAdd)',
-      text: 'removes or replaces items',
+      text: 'removes or replaces items, always check index !== -1 before using it',
     },
     {
       bold: "names.join(',')",
@@ -344,6 +357,66 @@ function openJsArrays(elListItem) {
     {
       bold: 'board[0][1] = board[4][5] = icon',
       text: 'this sets the same icon in two different positions on the board at once',
+    },
+  ]
+
+  changeMainText(items)
+}
+
+function openJsArraysExtras(elListItem) {
+  changeFormat()
+  makeClickedBold(elListItem)
+  changeHeader('Arrays Extras')
+  const items = [
+    {
+      bold: 'Garbage collector',
+      text: 'automatically removes unused objects from memory',
+    },
+    {
+      bold: 'for Each',
+      text: 'a loop that goes through each item in a collection or array one by one and performs the same action on each item',
+      example: 'players.forEach((player, idx, arr) => player.score++)',
+    },
+    {
+      bold: 'fFilter',
+      text: 'goes through an array and returns a new array containing only the elements that meet a condition you specify',
+      example: 'const evenNumbers = numbers.filter(num => num % 2 === 0)',
+    },
+    {
+      bold: 'map',
+      text: 'goes through an array and returns a new array where each element is transformed according to a function you provide',
+      example: 'const doubled = numbers.map(num => num * 2)',
+    },
+    {
+      bold: 'find',
+      text: 'goes through an array and returns the first element that matches a condition you specify (or undefined if none match)',
+      example: 'const firstEven = numbers.find(num => num % 2 === 0)',
+    },
+    {
+      bold: 'findIndex',
+      text: 'returns the index of the first element that matches the condition (or -1 if none match)',
+      example: 'const firstEvenIndex = numbers.findIndex(num => num % 2 === 0)',
+    },
+    {
+      bold: 'every',
+      text: 'checks if all elements in an array satisfy a condition, and returns true or false',
+      example: 'const allEven = numbers.every(num => num % 2 === 0)',
+    },
+    {
+      bold: 'some',
+      text: 'checks if at least one element in an array satisfies a condition, and returns true or false',
+      example: 'const hasEven = numbers.some(num => num % 2 === 0)',
+    },
+    {
+      bold: 'reduce',
+      text: 'combine all array elements step by step into a single value, object, or array, and always return the accumulator at the end of the function',
+      example: 'const sum = numbers.reduce((acc, current) => acc + current, 0)',
+    },
+    {
+      bold: 'sort/toSorted',
+      text: 'reorders the elements of an array based on a comparison function and modifies the original array',
+      example:
+        'alphabetical - names.sort((name1, name2) => name1.localeCompare(name2)) <br> numbers - ages.sort((age1, age2) => age1-age2 * 1 or -1)',
     },
   ]
 
@@ -491,6 +564,28 @@ function openJsConnecting(elListItem) {
     {
       bold: 'style="color:black"',
       text: 'a quick way to style an element from JavaScript without creating a CSS class',
+    },
+  ]
+
+  changeMainText(items)
+}
+
+function openJsPagination(elListItem) {
+  changeFormat()
+  makeClickedBold(elListItem)
+  changeHeader('Pagination')
+  const items = [
+    {
+      bold: 'startIdx = page.idx * page.size',
+      text: 'calculates the starting index of items for the current page in pagination',
+    },
+    {
+      bold: 'endIdx = startIdx + page.size',
+      text: 'calculates the ending index of items for the current page in pagination',
+    },
+    {
+      bold: 'const bookNumber = idx + 1 (page.idx * page.size)',
+      text: 'calculate the absolute item number across pages',
     },
   ]
 
