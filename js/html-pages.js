@@ -311,7 +311,7 @@ function openHtmInput(elListItem) {
       text: 'only accept numeric values, often showing arrows to increase or decrease the number',
     },
     {
-      bold: 'type="range" min="0" max="100" value="0"',
+      bold: 'type="range" min="0" max="100" value="0" step="2"',
       text: 'creates a slider input where the user can pick a number between 0 and 100, starting at 0',
     },
     {
@@ -319,8 +319,64 @@ function openHtmInput(elListItem) {
       text: 'creates a box that the user can check or uncheck to select an option',
     },
     {
+      bold: "type=''password'' || elConfirmPass.setCostumValidity('pass do not match') / ('')",
+      text: 'it makes the input hide typed characters. sets a custom validation message for the input; passing a non-empty string shows the message, and passing nothing clears it',
+    },
+    {
+      bold: 'type="search"',
+      text: 'field meant for search queries, often showing a clear (“×”) button',
+    },
+    {
+      bold: 'type="color"',
+      text: 'creates an input that lets the user pick a color using a color picker',
+    },
+    {
+      bold: 'type="tel"',
+      text: 'input for phone numbers, often showing a numeric keypad on mobile devices',
+    },
+    {
+      bold: 'type="email"',
+      text: 'input for email addresses and validates that the entered text follows the email format',
+    },
+    {
+      bold: 'type="date" value="1999-05-07"',
+      text: 'creates a date picker input and sets the default selected date',
+    },
+    {
+      bold: 'type="file" accept=".png" multiple',
+      text: 'creates a file input that only allows .png files and lets the user select multiple files at once',
+    },
+    {
+      bold: "type=''radio'' value=''yes'' || elChecked = document.querySelector('input:checked')",
+      text: 'creates a radio button, letting the user select only one option from a group. It selects the first checked input on the page',
+    },
+    {
       bold: 'placeholder="insert a price"',
       text: 'shows temporary hint text inside an input field to guide the user',
+    },
+    {
+      bold: 'required',
+      text: 'makes the input field mandatory, so the form won’t submit if it’s empty',
+    },
+    {
+      bold: 'minlength="3"',
+      text: 'it requires the input to have at least 3 characters before the form can be submitted',
+    },
+    {
+      bold: 'autocomplet="off"',
+      text: 'it tells the browser not to suggest or auto-fill previously entered values for that input',
+    },
+    {
+      bold: 'pattern=" "',
+      text: 'it sets a validation pattern using a regular expression (regex) that the input value must match',
+    },
+    {
+      bold: 'list="contactlist"<br>&lt;datalist id="contactlist"&gt;<br>&lt;option value="mh@gmail.com" label="puki"',
+      text: 'provides a list of predefined options for an input when the user types, letting them pick from the datalist suggestions',
+    },
+    {
+      bold: 'input[required]:invalid{ } :valid{ }',
+      text: 'styles a required input differently depending on whether its current value is valid or invalid',
     },
   ]
 

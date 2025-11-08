@@ -13,7 +13,9 @@ function openJs() {
     { name: 'Loops', func: 'openJsLoops(this)' },
     { name: 'Arrays', func: 'openJsArrays(this)' },
     { name: 'Arrays Extras', func: 'openJsArraysExtras(this)' },
+    { name: 'Spread', func: 'openJsSpread(this)' },
     { name: 'Objects', func: 'openJsObjects(this)' },
+    { name: 'Destructuring', func: 'openJsDes(this)' },
     { name: 'Matrix', func: 'openJsMatrix(this)' },
     { name: 'Functions', func: 'openJsFunctions(this)' },
     { name: 'Connecting JS with HTML & CSS', func: 'openJsConnecting(this)' },
@@ -33,18 +35,23 @@ function openJsFormats(elListItem) {
   const items = [
     {
       bold: 'var',
-      text: 'declares a variable. Its name should start with lowercase letters',
+      text: 'is hoisted, so it exists before its declaration with an initial value of undefined. Not limited to a block. Its name should start with lowercase letters',
       example: 'num, maxNum',
-    },
-    {
-      bold: 'Functions',
-      text: 'should have names that describe actions (verbs)',
-      example: 'getMax, sayHello',
     },
     {
       bold: 'const',
       text: 'declares a constant. You can perform actions on it, but you can’t reassign it. Its name should usually be uppercase',
       example: 'NUMBERS',
+    },
+    {
+      bold: 'let',
+      text: 'creates a variable you can change, and it only exists inside the block ({…}) where you define it',
+      example: 'NUMBERS',
+    },
+    {
+      bold: 'Functions',
+      text: 'should have names that describe actions (verbs)',
+      example: 'getMax, sayHello',
     },
     {
       bold: 'array',
@@ -423,6 +430,44 @@ function openJsArraysExtras(elListItem) {
   changeMainText(items)
 }
 
+function openJsSpread(elListItem) {
+  changeFormat()
+  makeClickedBold(elListItem)
+  changeHeader('Spread')
+  const items = [
+    {
+      bold: 'var max = Math.max(...nums)',
+      text: 'takes all elements of nums and passes them individually, as if you wrote them separately',
+    },
+    {
+      bold: 'nums.push(...moreNums)',
+      text: 'it adds all elements from moreNums individually into the nums array',
+    },
+    {
+      bold: 'var res = func(...nums) --> function func(x, y, z){ }',
+      text: 'it gives the function the first 3 elements of the array as separate arguments',
+    },
+    {
+      bold: 'var nums1 = [...nums2]',
+      text: 'it creates a new array nums1 containing all elements of nums2',
+    },
+    {
+      bold: 'var user1 = {...user2}',
+      text: 'it creates a new object user1 copying all properties from user2',
+    },
+    {
+      bold: 'var user1 = structuredClone(user2)',
+      text: 'it creates a deep copy of user2, including nested objects, into user1',
+    },
+    {
+      bold: "function func(...args){ } --> func(1, 'dan', 4, 100)",
+      text: 'it collects all passed arguments into the array args',
+    },
+  ]
+
+  changeMainText(items)
+}
+
 function openJsObjects(elListItem) {
   changeFormat()
   makeClickedBold(elListItem)
@@ -459,6 +504,53 @@ function openJsObjects(elListItem) {
     {
       bold: 'Object.keys(player) and Object.values(player)',
       text: 'return arrays of keys/values',
+    },
+  ]
+
+  changeMainText(items)
+}
+
+function openJsDes(elListItem) {
+  changeFormat()
+  makeClickedBold(elListItem)
+  changeHeader('Destructuring')
+  const items = [
+    {
+      bold: 'var {x,y} = info <br>var x = info.x & var y = info.y',
+      text: 'a shorthand way to extract specific values from an object or array and store them in separate variables',
+    },
+    {
+      bold: "var {name = 'Eldan', city = 'Netanya'} = person",
+      text: 'a way to pull specific values from an object while providing defaults if they don’t exist',
+    },
+    {
+      bold: 'var {name: petName, age: petAge} = pet',
+      text: 'Iit extracts values from an object and assigns them to new variable names',
+      example: 'var petName = pet.name',
+    },
+    {
+      bold: 'function foo({x,y}) { }',
+      text: 'a way to take specific values from an object and assign them directly to variables',
+    },
+    {
+      bold: '({s1, s2} = {s1:1, s2:2})',
+      text: 'a way to assign values, and add semicolon on the previous line to avoid errors',
+    },
+    {
+      bold: 'var [a, b, c] = [11, 22, 33, 44, 55]',
+      text: 'it extracts the first three elements of an array into separate variables',
+    },
+    {
+      bold: '[a, b] = [b, a]',
+      text: 'it swaps the values',
+    },
+    {
+      bold: '[i, , , j] = [11, 22, 33, 44, 55]',
+      text: 'it extracts the first and fourth elements of an array',
+    },
+    {
+      bold: 'var [name, setName] = func()',
+      text: 'it assigns the first two values returned by func()',
     },
   ]
 

@@ -117,6 +117,14 @@ function openlocalStorage(elListItem) {
       text: "retrieves the value stored under the key 'name' from the browser’s local storage",
     },
     {
+      bold: "localStorage.removeItem('name')",
+      text: 'removes the item',
+    },
+    {
+      bold: 'localStorage.clear()',
+      text: 'clears the whole storage',
+    },
+    {
       bold: "JSON,stringify({...}) || JSON.parse('{...}')",
       text: 'converts an object into a JSON string back into an object',
     },
