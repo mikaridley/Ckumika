@@ -6,6 +6,9 @@ function openCss() {
   const topics = [
     { name: 'Formats and Basics', func: 'openCssFormats(this)' },
     { name: 'Common Properties', func: 'openCssProperties(this)' },
+    { name: 'File types', func: 'openCssFile(this)' },
+    { name: 'Fonts', func: 'openCssFonts(this)' },
+    { name: 'Image', func: 'openCssImage(this)' },
     { name: 'Selectors', func: 'openCssSelectors(this)' },
     { name: 'Box Element', func: 'openCssBox(this)' },
     { name: 'Inline Element', func: 'openCssInline(this)' },
@@ -30,6 +33,15 @@ function openCss() {
   elSideBar.innerHTML = `<nav><h3>${header}</h3><ul>${strHtml}</ul></nav>`
 }
 
+//to copy---------------------------------
+// changeFormat()
+// makeClickedBold(elListItem)
+// changeHeader('Common Properties')
+// const items = [
+//   { bold: 'color:', text: 'text color' },
+// ]
+// changeMainText(items)
+
 function openCssFormats(elListItem) {
   changeFormat()
   makeClickedBold(elListItem)
@@ -37,11 +49,14 @@ function openCssFormats(elListItem) {
   const items = [
     {
       bold: 'CSS (Cascading Style Sheets)',
-      text: 'is used to control the appearance and layout of HTML elements. You can style elements by their tag, class, or id',
+      text: 'Is used to control the appearance and layout of HTML elements. You can style elements by their tag, class, or id.',
     },
     {
-      bold: 'Right order',
-      text: 'bow element stuff first, then style',
+      bold: `basics: base.css || layout.css || helpers.css<br>
+      components: main-header.css || main-nav.css ...<br>
+      setup: vars.css || typography.css (fonts) || mq.css<br>
+      styles.css - here you import all the files - @import url('...');`,
+      text: 'Folder division.',
     },
   ]
 
@@ -53,24 +68,125 @@ function openCssProperties(elListItem) {
   makeClickedBold(elListItem)
   changeHeader('Common Properties')
   const items = [
-    { bold: 'color:', text: 'text color' },
-    { bold: 'background-color:', text: 'background color' },
-    { bold: 'margin: / padding:', text: 'outer / inner spacing' },
-    { bold: 'border', text: 'outline' },
-    { bold: 'font-size:, font-weight:, font-family:', text: 'text style' },
-    { bold: 'text-transform:uppercase/lowercase', text: 'uppercase/lowercase' },
+    { bold: 'color:', text: 'Text color.' },
+    { bold: 'background-color: ', text: 'Background color.' },
+    { bold: 'margin: / padding: ', text: 'Outer / inner spacing.' },
+    { bold: 'border', text: 'Outline' },
+    { bold: 'font-size:, font-weight:, font-family:', text: 'Text style.' },
+    {
+      bold: 'text-transform:uppercase/lowercase',
+      text: 'Uppercase/lowercase.',
+    },
     {
       bold: 'text-align:justify/center',
       text: 'aligns text stretched across the line or centered',
     },
-    { bold: 'display:', text: 'layout behavior' },
-    { bold: 'width:, height:', text: 'element size' },
+    { bold: 'display:', text: 'Layout behavior.' },
+    { bold: 'width:, height:', text: 'Element size.' },
     {
-      bold: 'transition:1s | transition-color:',
+      bold: 'transition:1s;| transition-color: 1s;',
       text: 'any change in a CSS numeric property will smoothly animate over 1 second',
+    },
+    {
+      bold: 'pointer-events: none;',
+      text: 'It makes an element ignore all mouse or pointer interactions, useful when you want clicks to pass through it to elements underneath.',
     },
   ]
 
+  changeMainText(items)
+}
+
+function openCssFile(elListItem) {
+  changeFormat()
+  makeClickedBold(elListItem)
+  changeHeader('File Types')
+  const items = [
+    {
+      bold: 'jpeg',
+      text: 'good for photos. It makes files smaller by lowering quality a bit each time you save.',
+    },
+    {
+      bold: 'png',
+      text: 'keeps full quality and can have a transparent background — perfect for logos or icons.',
+    },
+    {
+      bold: 'gif',
+      text: 'Can move (simple animations) but has few colours, so it’s not good for detailed images.',
+    },
+    {
+      bold: 'svg',
+      text: 'made from shapes and lines instead of pixels, so it never gets blurry when you zoom in — great for web graphics.',
+    },
+  ]
+
+  changeMainText(items)
+}
+
+function openCssFonts(elListItem) {
+  changeFormat()
+  makeClickedBold(elListItem)
+  changeHeader('Fonts')
+  const items = [
+    {
+      bold: 'serif',
+      text: 'Fonts with small decorative lines at the ends of letters. They look traditional and formal.',
+    },
+    {
+      bold: 'sans-serif',
+      text: 'Fonts without those little lines. They look clean and modern. They are good for small letters.',
+    },
+    {
+      bold: 'monospace',
+      text: 'Every character takes the same amount of space. Used mostly for code or text that needs alignment.',
+    },
+    {
+      bold: `@font-face{<br>
+      &nbsp; font-family: fontName;<br>
+      &nbsp; src: url('...');<br>
+      &nbsp; font-wight: 700; }`,
+      text: 'Defines a custom font.',
+    },
+    {
+      bold: 'font-family: fontName, serif;',
+      text: 'It sets the main font to fontName and uses serif as a fallback if that font isn’t available.',
+    },
+    {
+      bold: `fa:before{<br>
+      &nbsp; font-family: fa; }<br><br>
+      .fa.facebook::before{<br>
+      &nbsp; content:"&#92;unicode";`,
+      text: 'It sets the main font to fontName and uses serif as a fallback if that font isn’t available.',
+    },
+  ]
+  changeMainText(items)
+}
+
+function openCssImage(elListItem) {
+  changeFormat()
+  makeClickedBold(elListItem)
+  changeHeader('Image')
+  const items = [
+    {
+      bold: 'object-fit: fill / contain / cover;',
+      text: 'Controls how an image or video fills its container: fill stretches it, contain fits it entirely without cropping, and cover fills the container while cropping if needed.',
+    },
+    {
+      bold: 'object-position: top / botoom ..;',
+      text: 'Sets where the content (like an image or video) is placed inside its container.',
+    },
+    {
+      bold: "background-image: url('...');",
+      text: 'Sets an image as the background of an element using a URL.',
+    },
+    {
+      bold: 'background-size: fill / contain / cover;',
+      text: 'Controls how a background image fits its container.',
+    },
+    {
+      bold: 'background-position: top / botoom ..;',
+      text: 'Sets where the image background is placed inside its container.',
+    },
+  ]
   changeMainText(items)
 }
 
@@ -148,12 +264,16 @@ function openCssBox(elListItem) {
       text: '1 - all | 2 - top&bottom sides | 3 -top sides bottom | 4- top right bottom left',
     },
     {
+      bold: 'box-shadow: x, y, blur-radius, spread-radius, color, inset;',
+      text: 'Adds a shadow around an element’s box, and using inset makes the shadow appear inside the element instead of outside.',
+    },
+    {
       bold: 'min-height:',
-      text: 'better than height: in order to prevent overflow',
+      text: 'Better than height: in order to prevent overflow.',
     },
     {
       bold: '*{ box-sizing:border-box; }',
-      text: 'make the block element include the border and padding in its default size',
+      text: 'Make the block element include the border and padding in its default size.',
     },
   ]
 
@@ -227,44 +347,52 @@ function openCssSizing(elListItem) {
   const items = [
     {
       bold: 'width: 70%;<br>max-width: 500px;<br>Or: width:min(500px, 70%);',
-      text: "percentage of the parent's width and not bigger then max-width",
+      text: "Percentage of the parent's width and not bigger then max-width.",
     },
     {
-      bold: 'font-size: max(18px, .75em)',
-      text: 'be 75% of your parent, but not less than 18px',
+      bold: 'font-size: max(18px, .75em);',
+      text: 'Be 75% of your parent, but not less than 18px.',
     },
     {
-      bold: 'max-width: 500px',
-      text: "it's a percentage of the parent's width",
+      bold: 'max-width: 500px;',
+      text: "It's a percentage of the parent's width.",
     },
     {
       bold: 'body:{ min-height(100vh) }',
-      text: 'the body becomes the whole page',
+      text: 'The body becomes the whole page.',
     },
     {
       bold: 'overflow: clip<br>overflow: scroll<br>overflow-x/y:',
-      text: 'hides/scroll the overflow content for one axis or both',
+      text: 'Hides/scroll the overflow content for one axis or both.',
     },
     {
       bold: "min-height: calc(100vh -some element's height - some pixels that i want)",
-      text: 'we can make calculation to the height',
-      example: 'min-height: calc(100vh -10vh - 60px)',
+      text: 'We can make calculation to the height.',
+      example: 'min-height: calc(100vh -10vh - 60px);',
     },
     {
       bold: 'vh/ vw',
-      text: 'measurement units, viewport height/width, its the amount in percentage compared to the screen height/width',
+      text: 'Measurement units, viewport height/width, its the amount in percentage compared to the screen height/width.',
     },
     {
       bold: 'ch',
-      text: "measurement units, represents the width of the '0' (zero) character in the element's current font",
+      text: "Measurement units, represents the width of the '0' (zero) character in the element's current font.",
     },
     {
-      bold: 'em/rem',
-      text: 'em is relative to the font size of the  parent element while rem is relative to the font size of the root element',
+      bold: 'em',
+      text: 'Is a relative unit based on the parent element’s font size and is mostly used for vertical spacing. It’s best not to nest em inside another em, because the sizes multiply.',
+    },
+    {
+      bold: 'rem',
+      text: 'Is a relative unit based on the root (html) font size, staying consistent regardless of nesting.',
+    },
+    {
+      bold: 'value in em = desired px / parent fontSize px',
+      text: 'How to calculate em.',
     },
     {
       bold: 'fr',
-      text: 'relative units used to size elements proportionally to their container',
+      text: 'Relative units used to size elements proportionally to their container.',
     },
   ]
 
@@ -469,80 +597,88 @@ function openCssGrid(elListItem) {
   const items = [
     {
       bold: 'In grid',
-      text: 'if an element doesn’t have a set size, it will take up the entire available space',
+      text: 'If an element doesn’t have a set size, it will take up the entire available space.',
     },
     {
-      bold: 'display:grid',
-      text: 'turns a container into a grid layout, letting you place items in rows and columns',
+      bold: 'display: grid;',
+      text: 'Turns a container into a grid layout, letting you place items in rows and columns.',
     },
     {
       bold: 'grid-template-columns/rows: col1 col2 col3...',
-      text: 'defines the width of each column in a grid layout',
+      text: 'Defines the width of each column in a grid layout.',
       example: 'grid-template-columns: 100px 10rem 1em',
     },
     {
-      bold: 'grid-template-columns: repeat(4,100px)',
-      text: 'repeat 100px four times',
+      bold: 'grid-template-columns: repeat(4,100px);',
+      text: 'Repeat 100px four times.',
     },
     {
       bold: 'grid-template-area:<br>"header header"<br>"aside main"<br>"ad main"<br>"footer footer"',
-      text: "it defines the layout areas of a grid, where '.' represents empty cells, and each element needs grid-area: name to be placed in its section",
+      text: "It defines the layout areas of a grid, where '.' represents empty cells, and each element needs grid-area: name to be placed in its section.",
     },
     {
-      bold: 'grid-column/row-start/end:2',
-      text: 'sets where a grid item begins or ends on the grid lines. negative numbers count lines from the end',
+      bold: 'grid-column/row-start/end: 2;',
+      text: 'Sets where a grid item begins or ends on the grid lines. negative numbers count lines from the end.',
     },
     {
-      bold: 'grid-column:2/5 grid-row:2/span 5',
-      text: 'sets where a grid item starts and ends: you can specify exact line numbers or a start line plus how many tracks it should span',
+      bold: 'grid-column:2/5 grid-row:2/span 5;',
+      text: 'Sets where a grid item starts and ends: you can specify exact line numbers or a start line plus how many tracks it should span.',
     },
     {
-      bold: 'grid-area: 2/2/4/4',
-      text: 'kit starts at row line 2 and column line 2, and ends at row line 4 and column line 4',
+      bold: 'grid-area: 2/2/4/4;',
+      text: 'Kit starts at row line 2 and column line 2, and ends at row line 4 and column line 4.',
     },
     {
-      bold: 'align-content: center',
-      text: 'center the grid vertically within its container',
+      bold: 'align-content: center;',
+      text: 'Center the grid vertically within its container.',
     },
     {
-      bold: 'justify-content: center',
-      text: 'center the grid horizontally within its container',
+      bold: 'justify-content: center;',
+      text: 'Center the grid horizontally within its container.',
     },
     {
-      bold: 'width: max-content',
-      text: 'sets the element’s width to fit its content without wrapping, expanding as much as the content needs',
+      bold: 'width: max-content;',
+      text: 'Sets the element’s width to fit its content without wrapping, expanding as much as the content needs.',
     },
     {
-      bold: 'align-items: center',
-      text: 'vertically centers the content inside each grid cell',
+      bold: 'align-items: center;',
+      text: 'Vertically centers the content inside each grid cell.',
     },
     {
-      bold: 'justify-items: center',
-      text: 'horizontally aligns the content inside each grid cell',
+      bold: 'justify-items: center;',
+      text: 'Horizontally aligns the content inside each grid cell.',
     },
     {
-      bold: 'place-items: center',
-      text: 'it centers content both vertically and horizontally within each grid cell',
+      bold: 'place-items: center;',
+      text: 'It centers content both vertically and horizontally within each grid cell.',
     },
     {
-      bold: 'align-self: center / justify-self: center => place-self: center',
-      text: 'vertically / horizontally centers a single grid item within its own cell',
+      bold: 'align-self: center / justify-self: center => place-self: center;',
+      text: 'Vertically / horizontally centers a single grid item within its own cell.',
     },
     {
-      bold: 'grid-auto-flow: column / row',
-      text: 'places new grid items by filling column/rows first',
+      bold: 'grid-auto-flow: column / row;',
+      text: 'Places new grid items by filling column/rows first.',
     },
     {
-      bold: 'grid-auto-columns:80px ',
-      text: 'sets the width of any automatically created grid columns to 80 pixels',
+      bold: 'grid-auto-columns: 80px; ',
+      text: 'Sets the width of any automatically created grid columns to 80 pixels.',
     },
     {
       bold: 'grid-auto-flow: dense',
-      text: 'fills gaps left by earlier items to avoid empty spaces',
+      text: 'Fills gaps left by earlier items to avoid empty spaces.',
     },
     {
       bold: 'grid-template-columns: repeat( auto-full, minmax(80px, 1fr) )',
-      text: 'creates as many columns as fit, each at least 80px wide and growing to fill available space',
+      text: 'Creates as many columns as fit, each at least 80px wide and growing to fill available space.',
+    },
+    {
+      bold: 'auto / 1fr',
+      text: 'auto lets the column or row size itself based on its content. 1fr divides the remaining space equally.',
+    },
+    {
+      bold: 'grid-template-columns: subgrid;',
+      text: 'It makes a nested grid inherit its parent’s column structure.',
     },
   ]
 

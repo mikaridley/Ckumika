@@ -8,7 +8,7 @@ function openHtml() {
     { name: 'Links and Conections', func: 'openHtmlLinks(this)' },
     { name: 'Atribute Selectors', func: 'openHtmlAtributes(this)' },
     { name: 'Events', func: 'openHtmlEvents(this)' },
-    { name: 'Sound', func: 'openHtmlSound(this)' },
+    { name: 'Sound & Video', func: 'openHtmlSound(this)' },
     { name: 'Table and List', func: 'openHtmTable(this)' },
     { name: 'Input', func: 'openHtmInput(this)' },
     { name: 'Tags', func: 'openHtmTags(this)' },
@@ -38,34 +38,7 @@ function openHtmlFormats(elListItem) {
       text: 'are usually written in lowercase with hyphens',
       example: 'class="main-header"',
     },
-    {
-      bold: '&lt;p&gt;',
-      text: 'paragraph',
-    },
-    {
-      bold: '&lt;a&gt;',
-      text: 'link',
-    },
-    {
-      bold: '&lt;div&gt;',
-      text: 'block container',
-    },
-    {
-      bold: '&lt;section&gt; &lt;header&gt; &lt;footer&gt; &lt;main&gt; &lt;aside&gt; &lt;article&gt;',
-      text: 'semantic divs like',
-    },
-    {
-      bold: '&lt;span&gt;',
-      text: 'inline container for styling specific words',
-    },
-    {
-      bold: '&lt;img&gt;',
-      text: 'image',
-    },
-    {
-      bold: '&lt;strong&gt;',
-      text: 'bold text',
-    },
+
     {
       bold: '&lt;p&gt;lorem100&lt;/p&gt;',
       text: 'typing this in VS Code and pressing Enter writes 100 random words automatically.',
@@ -85,6 +58,10 @@ function openHtmlFormats(elListItem) {
     {
       bold: '&amp;nbsp;',
       text: 'tab space',
+    },
+    {
+      bold: '&amp;lt; &amp;gt;',
+      text: '&lt; &gt;',
     },
     {
       bold: '"https://unsplash.it/width/height/?number"',
@@ -248,15 +225,32 @@ function openHtmlEvents(elListItem) {
 function openHtmlSound(elListItem) {
   changeFormat()
   makeClickedBold(elListItem)
-  changeHeader('Sound')
+  changeHeader('Sound & Video')
   const items = [
     {
-      bold: 'Set sound',
-      text: 'var sound=new Audio("sound.mp3")',
+      bold: 'var sound=new Audio("sound.mp3")',
+      text: 'set sound',
     },
     {
-      bold: 'Play it',
-      text: 'sound.play()',
+      bold: 'sound.play()',
+      text: 'play it',
+    },
+    {
+      bold: `&lt;audio controls / autoplay&gt;<br>
+      &lt;source src="audio/win.mp3"/&gt;<br>
+      &lt;source src="audio/win2.mp3"/&gt;<br>
+      Your browser doesnt support html5 audio<br>
+      &lt;/audio&gt;
+      `,
+      text: 'it plays an audio file with playback controls and autoplay, using multiple source options for compatibility',
+    },
+    {
+      bold: `&lt;video loop controls&gt; `,
+      text: 'just like an audio',
+    },
+    {
+      bold: `id="myVideo" || myVideo.paused `,
+      text: 'you can give a video an id and then control it in JavaScript',
     },
   ]
 
@@ -378,6 +372,11 @@ function openHtmInput(elListItem) {
       bold: 'input[required]:invalid{ } :valid{ }',
       text: 'styles a required input differently depending on whether its current value is valid or invalid',
     },
+    {
+      bold: `const formData = new FormData(ev.target)<br>
+      const data = Object.fromEntries(formData.entries())`,
+      text: 'it takes all the form’s input values and converts them into an object',
+    },
   ]
 
   changeMainText(items)
@@ -388,6 +387,38 @@ function openHtmTags(elListItem) {
   makeClickedBold(elListItem)
   changeHeader('Tags')
   const items = [
+    {
+      bold: '&lt;p&gt;',
+      text: 'paragraph',
+    },
+    {
+      bold: '&lt;a&gt;',
+      text: 'link',
+    },
+    {
+      bold: '&lt;div&gt;',
+      text: 'block container',
+    },
+    {
+      bold: '&lt;section&gt; &lt;header&gt; &lt;footer&gt; &lt;main&gt; &lt;aside&gt; &lt;article&gt; &lt;time&gt;',
+      text: 'semantic divs like',
+    },
+    {
+      bold: '&lt;span&gt;',
+      text: 'inline container for styling specific words',
+    },
+    {
+      bold: '&lt;img&gt;',
+      text: 'image',
+    },
+    {
+      bold: '&lt;strong&gt;',
+      text: 'bold text',
+    },
+    {
+      bold: '&lt;small&gt;',
+      text: 'it makes the text smaller and usually used for side notes or secondary information',
+    },
     {
       bold: '&lt;select&gt;&lt;options value="all"&gt;',
       text: 'creates a dropdown menu with selectable items',

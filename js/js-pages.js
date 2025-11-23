@@ -607,6 +607,18 @@ function openJsFunctions(elListItem) {
       example:
         'var func = sayHello;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;func();',
     },
+    {
+      bold: `
+      function jquery(selector) {<br>
+      &nbsp; const el=document.querySelector(selector)<br>
+      &nbsp; return {<br>
+      &nbsp;&nbsp;&nbsp; text(txt) {<br>
+      &nbsp;&nbsp;&nbsp; el.innedText=txt }<br>
+      &nbsp;&nbsp;&nbsp; style( ) { } } }<br>
+      var specialEl = jquery('h1')<br>
+      specialEl.text('Welcome')`,
+      text: 'it’s a function that returns an object containing other functions, allowing you to perform actions on the selected element',
+    },
   ]
 
   changeMainText(items)
