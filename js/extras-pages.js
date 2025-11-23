@@ -9,6 +9,8 @@ function openExtras() {
     { name: 'MVC', func: 'openMvc(this)' },
     { name: 'Local storage', func: 'openlocalStorage(this)' },
     { name: 'Query Params', func: 'openQueryParams(this)' },
+    { name: 'CRUD', func: 'openCrud(this)' },
+    { name: 'React', func: 'openReact(this)' },
   ]
   var strHtml = ''
   for (var i = 0; i < topics.length; i++) {
@@ -34,6 +36,10 @@ function openShortcutsPage(elListItem) {
     },
     { bold: 'Ctrl + D', text: 'select next occurrence of word' },
     { bold: 'WinKey + .', text: 'emojis gallery' },
+    {
+      bold: 'Ctrl + space',
+      text: 'Showing possible variables, functions, or code snippets you can use at the cursor position.',
+    },
   ]
 
   changeMainText(items)
@@ -157,6 +163,102 @@ function openQueryParams(elListItem) {
     {
       bold: "queryParams.get('parameter') || ''",
       text: 'gets the parameter from the URL, or returns an empty string if it doesn’t exist',
+    },
+  ]
+
+  changeMainText(items)
+}
+
+function openCrud(elListItem) {
+  changeFormat()
+  makeClickedBold(elListItem)
+  changeHeader('CRUD')
+  const items = [
+    {
+      bold: 'query',
+      text: 'Get all items (Read all).',
+    },
+    {
+      bold: 'get',
+      text: 'Get one item by ID (Read one).',
+    },
+    {
+      bold: 'get',
+      text: 'Add a new item (Create).',
+    },
+    {
+      bold: 'put',
+      text: 'Update an existing item (Update).',
+    },
+    {
+      bold: 'remove',
+      text: 'Delete an item (Delete).',
+    },
+  ]
+
+  changeMainText(items)
+}
+
+function openReact(elListItem) {
+  changeFormat()
+  makeClickedBold(elListItem)
+  changeHeader('React')
+  const items = [
+    {
+      bold: 'Babel',
+      text: 'Babel lets you write new JS features while keeping compatibility with old browsers.',
+    },
+    {
+      bold: '&lt;React.Fragment&gt;',
+      text: 'A way to group multiple JSX elements without adding a div.',
+    },
+    {
+      bold: 'key=".."',
+      text: 'The key prop helps React identify which items in a list have changed, been added, or removed, so it can efficiently update the UI.',
+    },
+    {
+      bold: 'onClick={funcName}',
+      text: 'React automatically passes the click event object as the first argument.',
+    },
+    {
+      bold: 'function SomeComponent(props){...}',
+      text: 'Each component always recieves a props object.',
+    },
+    {
+      bold: '&lt;SomeComponent name="Eldan" user={{age:28}} /&gt;',
+      text: 'How to pass props to the component.',
+    },
+    {
+      bold: 'const {useState, useEffect, useRef} = React',
+      text: 'Import the hooks.',
+    },
+    {
+      bold: 'HOOK #1 const [count, setCount] = useState(0)',
+      text: 'It creates a count state starting at 0 and a setCount function to change it.',
+    },
+    {
+      bold: 'setCount(prevCount => prevCount + 1)',
+      text: 'It updates the state based on the previous value, guaranteeing the new count is always accurate even if React batches updates.',
+    },
+    {
+      bold: 'HOOK #2 const spanRef = useRef()<br>&lt;span ref = {spanRef}',
+      text: 'It gives you a pointer to the span DOM element, will return an object with current value.',
+    },
+    {
+      bold: 'const intervalIdRef = useRef()',
+      text: 'Creates a mutable object that survives re-renders, so it keeps its value even if the component updates.',
+    },
+    {
+      bold: 'HOOK #3 useEffect(()=>{...},[])',
+      text: 'Runs the code inside once, after the component renders.',
+    },
+    {
+      bold: 'useEffect(()=>{...},[count])',
+      text: 'Runs the effect whenever count changes.',
+    },
+    {
+      bold: 'useEffect(()=>{ return()=>{...}},[])',
+      text: 'Runs cleanup when the component unmounts.',
     },
   ]
 

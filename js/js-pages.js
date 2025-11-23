@@ -20,6 +20,7 @@ function openJs() {
     { name: 'Functions', func: 'openJsFunctions(this)' },
     { name: 'Connecting JS with HTML & CSS', func: 'openJsConnecting(this)' },
     { name: 'Pagination', func: 'openJsPagination(this)' },
+    { name: 'Promises', func: 'openJsPromises(this)' },
   ]
   var strHtml = ''
   for (var i = 0; i < topics.length; i++) {
@@ -187,8 +188,8 @@ function openJsTime(elListItem) {
       text: "runs the function once after 2 seconds, we can put a 'return' inside it, and the function won't execute",
     },
     {
-      bold: 'setTimeout(someFunc(), 2000)',
-      text: 'runs the function immediately, and then the result of that function after 2 seconds (this is usually a mistake)',
+      bold: 'setTimeout(someFunc(), 2000, 11)',
+      text: 'waits 2 seconds and then calls someFunc(11)',
     },
     {
       bold: 'clearTimeout(timeoutID)',
@@ -690,6 +691,57 @@ function openJsPagination(elListItem) {
     {
       bold: 'const bookNumber = idx + 1 (page.idx * page.size)',
       text: 'calculate the absolute item number across pages',
+    },
+  ]
+
+  changeMainText(items)
+}
+
+function openJsPromises(elListItem) {
+  changeFormat()
+  makeClickedBold(elListItem)
+  changeHeader('Promises')
+  const items = [
+    {
+      bold: 'Promise is',
+      text: 'an object that represents a value that will be available later, after an asynchronous operation finishes.',
+    },
+    {
+      bold: 'promise.then(res=> console.log(res))',
+      text: 'When the promise finishes successfully, run this function and use its result.',
+    },
+    {
+      bold: 'prm=fetch(url)<br>prm.then(res=>{<br>prmData=res.json()<br>.then(data=>{<br>console.log(data)}',
+      text: 'After the fetch promise resolves, convert the response to JSON (another promise) and then log the resulting data.',
+    },
+    {
+      bold: 'prm=Promise.resolve(17)',
+      text: 'This creates a promise that immediately resolves with the value 17.',
+    },
+    {
+      bold: `prm=Promise.reject('No')`,
+      text: `This creates a promise that immediately rejects with the reason 'No'.`,
+    },
+    {
+      bold: `prm.then(...).catch(...).finally()`,
+      text: `It runs .then() if the promise succeeds, .catch() if it fails, and .finally() always runs at the end, no matter what.`,
+    },
+    {
+      bold: `prm=new Promise((resolve, reject)=>{...}`,
+      text: `It creates a new promise and gives you two functions: resolve() to mark it as successful, and reject() to mark it as failed`,
+    },
+    {
+      bold: `Promise.all([prm1, prm2, prm3]).then().catch()`,
+      text: `It waits for all promises in the array to finish; if all succeed, .then() runs with their results, if any fail, .catch() runs with the error.`,
+    },
+    {
+      bold: ``,
+      text: `It waits for all promises in the array to finish; if all succeed, .then() runs with their results, if any fail, .catch() runs with the error.`,
+    },
+    {
+      bold: `prm=swal.fire({title:'shouldwe?', showDenyButton:true})<br>
+      prm.then(res()=>...)`,
+      text: 'A Swal modal is a customizable popup that returns a promise letting you handle user actions like confirm, deny, or cancel.',
     },
   ]
 
