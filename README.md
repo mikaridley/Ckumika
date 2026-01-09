@@ -16,6 +16,17 @@
   <strong>remember</strong> core web development concepts.
 </p>
 
+<hr>
+
+<h2>Live Demo 🚀</h2>
+<p>You can try the game <a href="https://mikaridley.github.io/Ckumika/">here</a></p>
+
+<h2>Preview 📸</h2>
+<img src="ckumikaPreview.png" alt="Screenshot of the game">
+
+<hr>
+
+
 <p>
   Inside the project, I documented and implemented:
 </p>
